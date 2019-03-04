@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.vivian.mlkitvisioncardscan.MainActivity">
+
+    <com.camerakit.CameraKitView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:background="@color/colorAccent"
+        android:keepScreenOn="true"
+        app:camera_facing="back"
+        app:camera_flash="auto"
+        app:camera_focus="continuous"
+        app:camera_permissions="camera"/>
+
+    <FrameLayout
+        android:id="@+id/framePreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/btnRetry"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_refresh" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_result1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scrollView"
+        android:background="#F5FFFA"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:text="信用卡資訊："
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@+id/linearLayout"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="#F5FFFA"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/tv_result2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+    </ScrollView>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/btn_onDevice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:text="OnDevice" />
+
+        <Button
+            android:id="@+id/btn_cloud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:text="Cloud" />
+    </LinearLayout>
+
+
+</RelativeLayout>
